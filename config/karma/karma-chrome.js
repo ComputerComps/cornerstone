@@ -3,6 +3,12 @@ module.exports = function (config) {
   var extendConfiguration = require('./karma-extend.js');
   config.set(extendConfiguration({
     singleRun: true,
-    browsers: ['Chrome']
+    browsers: ['Chrome'],
+    customLaunchers: {
+      ChromeNoSandbox: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    }
   }));
 };
